@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: MIT
+
+type: layout.Flex
+axis: Vertical
+spacing: SpaceStart
+alignment: Start
+children:
+- type: widget.Graphic
+  drawFunction: drawEgg
+  weight: 1
+- type: widget.Slider
+  color: "#FF0000FF"
+- type: layout.Flex
+  axis: Horizontal
+  spacing: SpaceSides
+  alignment: Middle
+  children:
+  - type: layout.Inset
+    bottom: 25
+    child:
+      type: layout.MinSize
+      minWidth: 100
+      child:
+        type: widget.Input
+        id: timeInput
+        hint: Minutes
+        inputType: Numeric
+        multiLine: false
+        binding: Time Remaining
+- type: widget.ProgressBar
+  id: progressBar
+  value: 0
+  binding: Progress
+- type: layout.Inset
+  top: 25
+  bottom: 25
+  left: 25
+  right: 25
+  child:
+    type: widget.Button
+    id: startButton
+    # icon: AVPlayArrow
+    label: Start
+    onClicked: onButtonStartClicked
+- type: layout.Flex
+  axis: Horizontal
+  spacing: SpaceSides
+  alignment: Middle
+  children:
+  - type: widget.Loader
+
